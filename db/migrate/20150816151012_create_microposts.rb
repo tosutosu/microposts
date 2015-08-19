@@ -5,7 +5,7 @@ class CreateMicroposts < ActiveRecord::Migration
       t.text :content
 
       t.timestamps null: false
-      t.index [:user_id, :create_at]
+      t.index [:follower, :followed], unique: true
     end
   end
 end
