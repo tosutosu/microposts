@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#home'
   get 'signup', to: 'users#new'
-  get 'followings', to: 'users#followings'
-  get 'followers', to: 'users#followers'
   
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'

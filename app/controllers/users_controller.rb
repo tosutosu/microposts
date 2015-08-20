@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts
+    @followings = @user.following_users
     #binding.pry
-    #@followings = @user.following_relationships
+    @followers = @user.follower_users
   end
   
   def new
@@ -31,15 +32,6 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-  end
-  
-  def followings
-    @user = User.find(params[:id])
-    @followings = @user.following_relationships
-  end
-  
-  def followers
-    
   end
   
 private

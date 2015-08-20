@@ -15,5 +15,29 @@
                 <%= render @microposts %>
             </ol>
         <% end %>
+        
+        <h3 class="user_lists">Following users(<%= @followings.count %>)</h3>
+        <% if @followings.any? %>
+            <ul class="user_lists">
+                <% @followings.each do |f| %>
+                    <div class="user_lists" style="clear: both;">
+                        <%= link_to gravatar_for(f, size: 50), f %>
+                        <span><%= link_to f.name, f %></span>
+                    </div>
+                <% end %>
+            </ul>
+        <% end %>
+        
+        <h3 style="clear: both;" class="user_lists">Follower users(<%= @followers.count %>)</h3>
+        <% if @followers.any? %>
+            <ul class="user_lists">
+                <% @followers.each do |f| %>
+                    <div class="user_lists" style="clear: both;">
+                        <%= link_to gravatar_for(f, size: 50), f %>
+                        <span><%= link_to f.name, f %></span>
+                    </div>
+                <% end %>
+            </ul>
+        <% end %>
     </div>
 </div>
