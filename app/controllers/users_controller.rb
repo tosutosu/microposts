@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts
-    @followings = @user.following_users
-    #binding.pry
-    @followers = @user.follower_users
+    @followings = followings @user
+    @followers = followers @user
   end
   
   def new
@@ -37,5 +36,13 @@ class UsersController < ApplicationController
 private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :area)
+  end
+  
+  def followings user
+    user.following_users
+  end
+  
+  def followers user
+    user.follower_users
   end
 end
