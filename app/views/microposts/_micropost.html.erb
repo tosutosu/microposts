@@ -8,4 +8,7 @@
             <%= link_to "delete", micropost, method: :delete, data: {conform: "You sure"} %>
         <% end %>
     </span>
+    <% if micropost.image? %>
+        <img class="micropost_image" src="<%=  micropost.image_url %>" alt="<%=  micropost.image_url %>">
+    <% end %>
 </li>
